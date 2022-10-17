@@ -5,11 +5,11 @@ h1 {
     font-size: 200px;
 }
 
-/*
-img {
-    background-color: red;
+
+img:hover {
+    background-color: gold;
 }
-*/
+
 
 /********************CLASS SELECTOR****************/
 
@@ -19,6 +19,10 @@ img {
 
 .broccoli {
     background-color: red;
+}
+
+.circular {
+    border-radius: 100%;
 }
 
 /********************ID SELECTOR****************/
