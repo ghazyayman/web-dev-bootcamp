@@ -1,12 +1,21 @@
-
 function whosPaying(names) {
+    
     /******Don't change the code above*******/
-  
-    //Write your code here.
-    var numberOfPeople = names.length;
-    var randomPerson = Math.floor(Math.random() * numberOfPeople);
-  
-    return names[randomPerson] + " is going to buy lunch today!";
-  
-    /******Don't change the code below*******/
-  }
+    var ranNum = Math.floor(Math.random()*names.length);
+    //console.log("ranNum: "+ ranNum);
+    
+     var tempNames =(names[ranNum]);
+        // names = ["Angela", "Nicole", "Emre", "Jun", "Kuromi"];
+        // in_names = (names[Math.floor(Math.random()*names.length)]);
+      //  console.log(tempNames);
+        return tempNames +" is going to buy lunch today!";
+        // console.log (whosPaying(names) + "will pay for lunch.")
+        
+        
+        
+    
+    
+    /******Don't change the code below*******/    
+    }
+    // var names = ["Angela", "Nicole", "Emre", "Jun", "Kuromi"];
+    console.log (whosPaying(["Angela", "Nicole", "Emre", "Jun", "Kuromi"]) );
