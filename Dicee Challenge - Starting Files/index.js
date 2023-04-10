@@ -1,11 +1,31 @@
-function rollDice(di){
-    var randomDice = Math.floor(6*Math.random())+1;  
-    di.src = "dice/" + randomDice + ".jpg";
-}
+var randomNumber1 = Math.floor(Math.random() * 6) + 1; // 1-6  
 
-function rollDices() {
-    rollDice(dice1);
-    rollDice(dice2);
-    rollDice(dice3);    
-}
+var randomDiceImage = "dice" + randomNumber1 + ".png"; // dice1.png - dice6.png 
 
+var randomImageSource = "images/" + randomDiceImage; // images/dice1.png - images/dice6.png
+
+var image1 = document.querySelectorAll("img")[0];
+
+image1.setAttribute("src", randomImageSource);
+
+// Player 2
+
+var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+var randomDiceImage = "dice" + randomNumber2 + ".png";
+
+var randomImageSource = "images/" + randomDiceImage;
+
+var image1 = document.querySelectorAll("img")[1];
+
+image1.setAttribute("src", randomImageSource);
+
+// If Player 1 wins
+
+if (randomNumber1 > randomNumber2) {
+    document.querySelector("h1").innerHTML = "🚩 Player 1 Wins!";
+} else if (randomNumber2 > randomNumber1) {
+    document.querySelector("h1").innerHTML = "Player 2 Wins! 🚩";
+} else {
+    document.querySelector("h1").innerHTML = "Draw!";
+}
