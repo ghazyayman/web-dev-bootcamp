@@ -1,27 +1,43 @@
-// Description: This file contains the game logic for the Simon Game
+
 var buttonColours = ["red", "blue", "green", "yellow"];
 
-//Create a new empty array called gamePattern
 var gamePattern = [];
-
 var userClickedPattern = [];
 
 $(".btn").click(function() {
 
-    var userChosenColour = $(this).attr("id");
-    userClickedPattern.push(userChosenColour);
-    
+  var userChosenColour = $(this).attr("id");
+  userClickedPattern.push(userChosenColour);
+
+  playSound(userChosenColour);
+
+  animatePress(userChosenColour);
 });
 
-//nextSequence() is called when the user presses a key, or when the game starts 
 function nextSequence() {
 
-    var randomNumber = Math.floor(Math.random() * 4);
-    var randomChosenColour = buttonColours[randomNumber];
-    gamePattern.push(randomChosenColour);
+  var randomNumber = Math.floor(Math.random() * 4);
+  var randomChosenColour = buttonColours[randomNumber];
+  gamePattern.push(randomChosenColour);
 
-    $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
-    var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
-    audio.play();
+  playSound(randomChosenColour);
+}
+
+function playSound(name) {
+  var audio = new Audio("sounds/" + name + ".mp3");
+  audio.play();
+}
+
+//1. Create a new function called animatePress(), it should take a single input parameter called currentColour.
+function animatePress(currentColor) {
+
+  //2. Use jQuery to add this pressed class to the button that gets clicked inside animatePress().
+  $("#" + currentColor).addClass("pressed");
+
+  //3. use Google/Stackoverflow to figure out how you can use Javascript to remove the pressed class after a 100 milliseconds.
+  setTimeout(function () {
+    $("#" + currentColor).removeClass("pressed");
+  }, 100);
 }
