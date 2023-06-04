@@ -9,7 +9,11 @@ app.get('/', function(request, response){
 
 app.get("/contact", function(req, res){
     res.send("Contact me at: muhghazy09@gmail.com");
-})
+});
+
+app.get("/about", function(req, res){
+    res.send("My name is Mohamed Ghazy and I am a software engineer");
+});
 
 app.listen(3000, function(){
     console.log('Server is running on port 3000');
