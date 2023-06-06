@@ -1,11 +1,14 @@
 {
   "name": "calculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple calculator website",
   "main": "calculator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ghazy",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
