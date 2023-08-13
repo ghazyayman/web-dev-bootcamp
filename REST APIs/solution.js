@@ -29,6 +29,13 @@ app.post("/get-secret", async (req, res) => {
 });
 
 app.post("/post-secret", async (req, res) => {
+
+  req.body = {
+    secret: "This is a secret message.",
+    score: 4
+  }
+
+
   try {
     const result = await axios.post(API_URL + "/secrets", req.body, config);
     res.render("index.ejs", { content: JSON.stringify(result.data) });
