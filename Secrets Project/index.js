@@ -1,17 +1,24 @@
 // Import required modules
-const express = require('express');
-const axios = require('axios');
-const path = require('path');
+import express from "express";
+import axios from "axios";
 
 // Create an express app
 const app = express();
 const port = 3000; // You can change this to your desired port
 
 // Set up static file serving from the public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("public"));
 
 // Set the view engine to EJS
-app.set('view engine', 'ejs');
+app.get("/", async (req, res) => {
+  try {
+  const result = await axios.get ("https://secrets-api.appbrewery.com/random");
+  res.render("index.ejs", {secret: result.data.secret, user: result.data.username});
+} catch (error) {
+  console.log(error.response.data);
+  res.status(500);
+}
+});
 
 // Define a route for the home page
 app.get('/', async (req, res) => {
